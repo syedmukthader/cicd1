@@ -24,7 +24,7 @@ pipeline {
     steps {
         sh '''
         echo "dckr_pat_6UBnYTY-v9DtMETl5X_cOS65acE" | docker login --username trydomain --password-stdin
-        docker build -t regapp2 -f /home/ubuntu/cicd1/Dockerfile .
+        docker build -t regapp2 -f /home/ubuntu/cicd1/Dockerfile /home/ubuntu/cicd1
         docker tag regapp2:latest trydomain/regapp2:latest
         docker push trydomain/regapp2:latest
         '''
