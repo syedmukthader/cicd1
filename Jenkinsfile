@@ -24,7 +24,7 @@ pipeline {
         {
          steps {
             sh '''
-            docker login -u $DOCKER_USR -p $DOCKER_PSW
+            echo "dckr_pat_6UBnYTY-v9DtMETl5X_cOS65acE" | docker login --username trydomain  --password-stdin
             docker build -t regapp2
             docker tag regapp2:latest  trydomain/regapp2:latest
             docker push trydomain/regapp2:latest
