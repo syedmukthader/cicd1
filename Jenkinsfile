@@ -35,7 +35,10 @@ pipeline {
 			steps{
                 withCredentials([string(credentialsId: 'K8S-TOKEN', variable: 'KUBE_API_TOKEN')]) {
                 sh '''
-                sh $WORKSPACE/certs/set-k8s-context.sh $KUBE_API_EP $KUBE_API_TOKEN $CERT
+                sh /var/lib/jenkins/workspace/cicd23/certs/set-k8s-context.sh \
+                    "https://K8S-af8abfd91dc8ead1.elb.us-east-1.amazonaws.com****" \
+                    "$KUBE_API_TOKEN" \
+                    "/var/lib/jenkins/workspace/cicd23/certs/deploy-qa.crt"
                 kubectl apply -f . --insecure-skip-tls-verify
                 kubectl get all --insecure-skip-tls-verify
                 '''
