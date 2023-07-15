@@ -17,7 +17,7 @@ pipeline {
             }
         stage ('git checkout') {
             steps {
-                git 'https://github.com/syedmukthader/completecicd.git'
+                git 'https://github.com/syedmukthader/cicd1.git'
             }
         }
         stage ("docker-build")
